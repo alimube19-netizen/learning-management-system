@@ -1,0 +1,333 @@
+.admin-sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    /* Changed to fixed for sticky behavior */
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Keep all your existing CSS styles, they're fine */
+.sidebar-header {
+    margin-bottom: 10px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-logo:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon i {
+    font-size: 20px;
+}
+
+.logo-text {
+    text-align: left;
+}
+
+.logo-title {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    line-height: 1.2;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    opacity: 0.8;
+    display: block;
+    margin-top: 2px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 12px 0;
+}
+
+.sidebar-menu {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 12px;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+/* Single Item Styles */
+.sidebar-single-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+}
+
+.sidebar-single-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    padding-left: 16px;
+}
+
+.sidebar-single-item.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-single-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: #4CAF50;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Section Styles */
+.sidebar-section {
+    margin: 4px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.section-header:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.section-header.has-active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.section-header.expanded {
+    background: rgba(255, 255, 255, 0.12);
+    margin-bottom: 4px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.active-dot {
+    position: absolute;
+    top: -2px;
+    right: -6px;
+    width: 6px;
+    height: 6px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.section-arrow {
+    transition: transform 0.2s ease;
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.section-arrow.expanded {
+    transform: rotate(90deg);
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-left: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 6px 6px;
+}
+
+.section-content.expanded {
+    max-height: 200px;
+}
+
+.section-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+}
+
+.section-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    padding-left: 16px;
+}
+
+.section-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 500;
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-icon {
+    width: 20px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.item-icon {
+    width: 16px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Profile Styles */
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-details {
+    overflow: hidden;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.profile-role {
+    font-size: 11px;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px 6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.logout-btn {
+    color: white;
+    opacity: 0.7;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 1;
+    transform: scale(1.1);
+}

@@ -1,0 +1,43 @@
+/* Sidebar default width */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+}
+
+/* Make layout stack vertically on small screens */
+@media (max-width: 768px) {
+  .row.flex-nowrap {
+    flex-wrap: wrap !important;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .right_side_content {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
